@@ -7,16 +7,16 @@
 
       <!-- backlog -->
       <div class="col-md-3">
-        <h3>backlog</h3>
+        <h3>Backlog</h3>
         <div class="panel panel-primary text-left" v-for="(data, index) in allTodos" v-if="data.status === 1">
           <div class="panel-heading">
             <h3 class="panel-title"><b>{{data.task}}</b></h3>
           </div>
           <div class="panel-body">
-            dikerjakan oleh: <b>{{data.assignTo}}</b><br>
+            Dikerjakan oleh: <b>{{data.assignTo}}</b> Point: <b>{{ data.point }}</b><br>
             {{data.des}}<br>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="destroy(index)" name="button">Del</button>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="next(data, index)" name="button">Masuk Proses Koding</button>
+            <button type="button" class="btn btn-danger" style="border-radius:50px;" @click="destroy(index)" name="button"><span class="glyphicon glyphicon-trash"></span></button>
+            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="next(data, index)" name="button"><span class="glyphicon glyphicon-triangle-right"></span></button>
           </div>
         </div>
       </div>
@@ -29,11 +29,11 @@
             <h3 class="panel-title"><b>{{data.task}}</b></h3>
           </div>
           <div class="panel-body">
-            dikerjakan oleh: <b>{{data.assignTo}}</b><br>
+            Dikerjakan oleh: <b>{{data.assignTo}}</b> Point: <b>{{ data.point }}</b><br>
             {{data.des}}<br>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="destroy(index)" name="button">Del</button>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="back(data, index)" name="button">Kembali ke Backlog</button>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="next(data, index)" name="button">Masuk Testing Area</button>
+            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="back(data, index)" name="button"><span class="glyphicon glyphicon-triangle-left"></span></button>
+            <button type="button" class="btn btn-danger" style="border-radius:50px;" @click="destroy(index)" name="button"><span class="glyphicon glyphicon-trash"></span></button>
+            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="next(data, index)" name="button"><span class="glyphicon glyphicon-triangle-right"></span></button>
           </div>
         </div>
       </div>
@@ -46,11 +46,12 @@
             <h3 class="panel-title"><b>{{data.task}}</b></h3>
           </div>
           <div class="panel-body">
-            dikerjakan oleh: <b>{{data.assignTo}}</b><br>
+            Dikerjakan oleh: <b>{{data.assignTo}}</b> Point: <b>{{ data.point }}</b><br>
             {{data.des}}<br>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="destroy(index)" name="button">Del</button>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="back(data, index)" name="button">Kembali ke Proses Koding</button>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="next(data, index)" name="button">Tandai Selesai</button>
+
+            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="back(data, index)" name="button"><span class="glyphicon glyphicon-triangle-left"></span></button>
+            <button type="button" class="btn btn-danger" style="border-radius:50px;" @click="destroy(index)" name="button"><span class="glyphicon glyphicon-trash"></span></button>
+            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="next(data, index)" name="button"><span class="glyphicon glyphicon-triangle-right"></span></button>
           </div>
         </div>
       </div>
@@ -63,10 +64,10 @@
             <h3 class="panel-title"><b>{{data.task}}</b></h3>
           </div>
           <div class="panel-body">
-            dikerjakan oleh: <b>{{data.assignTo}}</b><br>
+            Dikerjakan oleh: <b>{{data.assignTo}}</b> Point: <b>{{ data.point }}</b><br>
             {{data.des}}<br>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="destroy(index)" name="button">Del</button>
-            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="back(data, index)" name="button">Kembali ke Proses Koding</button>
+            <button type="button" class="btn btn-info" style="border-radius:50px;" @click="back(data, index)" name="button"><span class="glyphicon glyphicon-triangle-left"></span></button>
+            <button type="button" class="btn btn-danger" style="border-radius:50px;" @click="destroy(index)" name="button"><span class="glyphicon glyphicon-trash"></span></button>
           </div>
         </div>
       </div>
@@ -113,15 +114,9 @@ export default {
   },
   components: {
     Panelatas
-    // Todolist,
-    // Sedangcoding,
-    // Testing,
-    // Selesai
   },
   mounted () {
-    // this.$store.commit('getAllTodos')
     this.getAllTodos()
-    console.log('data todos', this.allTodos);
   }
 }
 </script>

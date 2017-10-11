@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/kanban.png" width="200">
     <router-view></router-view>
   </div>
 </template>

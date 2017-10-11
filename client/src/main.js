@@ -5,8 +5,6 @@ import App from './App'
 import router from './router'
 import * as firebase from 'firebase'
 
-// import { store } from './store/store'
-
 const config = {
   databaseURL: "https://kanban-realtime-8923c.firebaseio.com",
   projectId: "kanban-realtime-8923c"
@@ -26,7 +24,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  // store,
   template: '<App/>',
   components: { App }
 })
